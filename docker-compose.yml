@@ -1,0 +1,20 @@
+version: '2'
+
+services:
+  www:
+    build: ./www
+    expose:
+      - "8080"
+    labels:
+      - "traefik.backend=www"
+      - "traefik.frontend.entryPoints=https"
+      - "traefik.docker.network=web"
+      - "traefik.frontend.rule=PathPrefix:/"
+      - "traefik.enable=true"
+      - "traefik.port=8080"
+    networks:
+      - web
+
+networks:
+  web:
+    external: true
