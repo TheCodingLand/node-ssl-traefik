@@ -17,7 +17,7 @@ WORKDIR /usr/src/apps/tutorial-engine
 RUN npm install
 RUN npm run build
 RUN mkdir -p /usr/app/www/help
-RUN yes | cp -rf /usr/src/app/build/* /usr/app/www/help
+RUN yes | cp -rf /usr/src/apps/tutorial-engine/build/* /usr/app/www/help
 
 WORKDIR /usr/app/www/
 #CMD ["npm", "start"]
