@@ -19,6 +19,18 @@ RUN npm run build
 RUN mkdir -p /usr/app/www/help
 RUN yes | cp -rf /usr/src/apps/tutorial-engine/build/* /usr/app/www/help
 
+WORKDIR /usr/src/apps
+RUN git clone https://github.com/TheCodingLand/julien-tech.git
+WORKDIR /usr/src/apps/julien-tech
+RUN npm install
+RUN npm run build
+RUN mkdir -p /usr/app/www/
+RUN yes | cp -rf /usr/src/apps/julien-tech/build/* /usr/app/www/
+
+
+
+
+
 WORKDIR /usr/app/www/
 #CMD ["npm", "start"]
 
