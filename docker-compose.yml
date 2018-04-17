@@ -1,8 +1,10 @@
-version: '2'
+version: '3'
 
 services:
   www:
     build: ./www
+    ports:
+      - 8000:8080
     expose:
       - "8080"
     labels:
@@ -10,6 +12,39 @@ services:
       - "traefik.frontend.entryPoints=http,https"
       - "traefik.docker.network=web"
       - "traefik.frontend.rule=Host:julien.tech"
+      - "traefik.enable=true"
+      - "traefik.port=8080"
+    networks:
+      - web
+
+
+  help:
+    build: ./help
+    ports:
+      - 8000:8080
+    expose:
+      - "8080"
+    labels:
+      - "traefik.backend=help"
+      - "traefik.frontend.entryPoints=http,https"
+      - "traefik.docker.network=web"
+      - "traefik.frontend.rule=Host:help.julien.tech"
+      - "traefik.enable=true"
+      - "traefik.port=8080"
+    networks:
+      - web
+
+  universe:
+    build: ./universe
+    ports:
+      - 8000:8080
+    expose:
+      - "8080"
+    labels:
+      - "traefik.backend=universe"
+      - "traefik.frontend.entryPoints=http,https"
+      - "traefik.docker.network=web"
+      - "traefik.frontend.rule=Host:universe.julien.tech"
       - "traefik.enable=true"
       - "traefik.port=8080"
     networks:
