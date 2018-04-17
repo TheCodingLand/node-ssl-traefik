@@ -3,8 +3,7 @@ version: '3'
 services:
   www:
     build: ./www
-    ports:
-      - 8000:8080
+    
     expose:
       - "8080"
     labels:
@@ -20,8 +19,7 @@ services:
 
   help:
     build: ./help
-    ports:
-      - 8000:8080
+    
     expose:
       - "8080"
     labels:
@@ -36,8 +34,6 @@ services:
 
   universe:
     build: ./universe
-    ports:
-      - 8000:8080
     expose:
       - "8080"
     labels:
