@@ -7,9 +7,9 @@ services:
       - "8080"
     labels:
       - "traefik.backend=www"
-      - "traefik.frontend.entryPoints=https"
+      - "traefik.frontend.entryPoints=http,https"
       - "traefik.docker.network=web"
-      - "traefik.frontend.rule=PathPrefix:/"
+      - "traefik.frontend.rule=Host:julien.tech"
       - "traefik.enable=true"
       - "traefik.port=8080"
     networks:
